@@ -1,10 +1,21 @@
-//
-//  server.c
-//  final
-//
-//  Created by Connor on 12/7/15.
-//  Copyright (c) 2015 Connor. All rights reserved.
-//
+/*
+This code is responsible for threading each user's session and handling the ATM functions. 
+Upon successful connection, this code begins prompting the user for a function and their account name (if needed). 
+Users can also create accounts (up to 20 users), balance inquiries, deposit, withdrawal
+
+    /*
+     Client Handler
+     Check User Input:
+     0. Request User Input
+     1. Open Account
+     2. Start Account
+     3. Credit Amount
+     4. Debit Amount
+     5. Balance
+     6. Finish
+     7. Exit
+     */
+*/ 
 #define PORT 61230
 #include <stdio.h>
 #include <stdlib.h>
@@ -143,6 +154,7 @@ int main(int argc, const char * argv[]) {
     
     
 }
+//Prints account names, balances and if the user is in session.
 void bankPrinter(){
     account* curr = bankHead;
     while(curr != NULL){
@@ -259,6 +271,9 @@ void openAccount(char* accountName, int socket){
 
 //This is called if commandParser encounters "start" as the first word.
 //Reasoning for a separate function is so that we can't open accounts while in session.
+
+/****The ClientHandler function is responsible for parsing the user input and returning the appropriate ATM function.****/
+
 void* clientHandler(void * socket){
     
     //Trying to scan input client side
