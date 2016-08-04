@@ -1,11 +1,14 @@
-//
-//  client.c
-//  final
-//
-//  Created by Connor on 12/7/15.
-//  Copyright (c) 2015 Connor. All rights reserved.
-//
+/*
+Client.c
+Input: argv[0] = exe
+       argv[1] = Name of the host machine
+       
+This code is responsible for establishing a connection to a remote machine. 
+If the server is not running, this program tries to reconnect every 3 seconds until a connection is reached.
 
+
+
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +24,7 @@ int main(int argc, char * argv[]){
     struct sockaddr_in server;
     struct hostent* serverMachine;
     char buffer[108], serverTalk[250];
-    //My client takes 2 inputs...
+    //My client.c file takes 2 inputs...
     //argv[0] = exe
     //argv[1] = machineName
     if(argc != 2){
