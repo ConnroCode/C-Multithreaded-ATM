@@ -3,7 +3,7 @@ Client.c
 Input: argv[0] = exe
        argv[1] = Name of the host machine
        
-This code is responsible for establishing a connection to a remote machine. 
+This code is responsible for establishing a connection from the user to a remote machine. 
 If the server is not running, this program tries to reconnect every 3 seconds until a connection is reached.
 
 
